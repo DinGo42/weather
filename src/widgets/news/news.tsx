@@ -1,23 +1,60 @@
 'use client';
-import { FC, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { NewsList } from './news-item';
-
+const maxListItems = 4;
 export const News: FC = () => {
+  const [scrollLeft, setScrollLeftWidth] = useState(0);
   const newsListRef = useRef<HTMLDivElement | null>(null);
-
   const newsList = newsListRef.current;
-  if (!newsList) return;
-  const newsListWidth = newsList.scrollWidth - newsList.clientWidth;
-  newsList.scrollLeft = 1059;
+
+  const caruselHandler = useCallback(
+    (L: boolean = true) => {
+      if (!newsList) return;
+      const scrollMaxWidth = newsList.scrollWidth - newsList.clientWidth;
+      console.log(scrollLeft);
+      const newScrollLeft = L
+        ? scrollLeft - scrollMaxWidth - maxListItems
+        : scrollLeft + scrollMaxWidth - maxListItems;
+      setScrollLeftWidth(() =>
+        newScrollLeft < 0
+          ? 0
+          : newScrollLeft > scrollMaxWidth
+          ? scrollMaxWidth
+          : newScrollLeft
+      );
+    },
+    [newsList, scrollLeft]
+  );
+
+  useEffect(() => {
+    if (!newsList) return;
+    newsList.scrollLeft = scrollLeft;
+  }, [newsList, scrollLeft]);
 
   return (
-    <div className="w-full h-96 bg-blue-500 rounded-3xl border-2 border-blue-450 p-3">
-      <h1>Weather News</h1>
+    <div className="w-full h-96 rounded-3xl border-2 border-blue-450 p-3 flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl">Weather News</h1>
+        <div className="flex gap-5 pr-16">
+          <button
+            className="bg-blue-500 rounded-full w-11 h-11 rotate-180"
+            onClick={() => caruselHandler()}
+          >
+            ➤
+          </button>
+          <button
+            className="bg-blue-500 rounded-full w-11 h-11"
+            onClick={() => caruselHandler(false)}
+          >
+            ➤
+          </button>
+        </div>
+      </div>
       <div
         ref={newsListRef}
-        className="flex gap-4 w-full h-full pb-6 overflow-x-auto"
+        className="flex gap-4 w-full h-full pb-6  overflow-x-auto pl-10 pr-"
       >
-        <NewsList />
+        <NewsList maxListItems={maxListItems} />
       </div>
     </div>
   );

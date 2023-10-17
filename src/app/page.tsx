@@ -1,4 +1,5 @@
 import { News, Schedules, Weather } from '@weather/widgets';
+import { NewsList } from '@weather/widgets/news/news-item';
 
 export default function Home() {
   return (
