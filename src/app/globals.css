@@ -6,7 +6,26 @@
   box-sizing: border-box;
   /* overflow: hidden; */
 }
+text {
+  text-anchor: middle;
+  alignment-baseline: central;
+  font-size: 12px;
+  font-family: sans-serif;
+}
 
+#circle {
+  transition: 0.3s linear;
+}
+
+input {
+  display: block;
+  width: 300px;
+  margin: 30px auto;
+}
+
+p {
+  transform: scale(1.4);
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

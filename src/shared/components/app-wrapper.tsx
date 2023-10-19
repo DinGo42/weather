@@ -9,7 +9,7 @@ export const AppWrapper: FC<AppWrapperProps> = ({ children }) => {
     <>
       <div className="bg-blue-800 w-screen h-screen flex flex-col pr-5 pl-5 pb-3 pt-2  gap-2">
         <Header />
-        <div className="w-full h-full flex  gap-6">{children}</div>
+        <div className="w-full h-full flex  gap-6 bg-blue-800">{children}</div>
       </div>
     </>
   );
