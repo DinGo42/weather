@@ -1,5 +1,5 @@
 'use client';
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { FC, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { NewsList } from './news-item';
 const maxListItems = 4;
 export const News: FC = () => {
@@ -26,7 +26,7 @@ export const News: FC = () => {
     [newsList, scrollLeft]
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!newsList) return;
     newsList.scrollLeft = scrollLeft;
   }, [newsList, scrollLeft]);
@@ -52,7 +52,7 @@ export const News: FC = () => {
       </div>
       <div
         ref={newsListRef}
-        className="flex gap-4 w-full h-full pb-6  overflow-x-auto pl-10 pr-"
+        className="flex gap-4 w-full h-full overflow-hidden"
       >
         <NewsList maxListItems={maxListItems} />
       </div>
