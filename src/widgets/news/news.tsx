@@ -35,15 +35,15 @@ export const News: FC = () => {
     <div className="w-full h-96 rounded-3xl border-2 border-blue-450 p-3 flex flex-col gap-3">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">Weather News</h1>
-        <div className="flex gap-5 pr-16">
+        <div className="flex gap-5 absolute right-16">
           <button
-            className="bg-blue-500 rounded-full w-11 h-11 rotate-180"
+            className="bg-blue-500 rounded-full w-9 h-9 rotate-180"
             onClick={() => caruselHandler()}
           >
             ➤
           </button>
           <button
-            className="bg-blue-500 rounded-full w-11 h-11"
+            className="bg-blue-500 rounded-full w-9 h-9"
             onClick={() => caruselHandler(false)}
           >
             ➤

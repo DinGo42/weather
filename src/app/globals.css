@@ -4,8 +4,17 @@
 
 * {
   box-sizing: border-box;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
+
+.animation-play {
+  animation-play-state: running;
+}
+
+.animation-stop {
+  animation-play-state: paused;
+}
+
 text {
   text-anchor: middle;
   alignment-baseline: central;
