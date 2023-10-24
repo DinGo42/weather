@@ -42,8 +42,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -55,8 +55,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -68,8 +68,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -81,8 +81,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -94,8 +94,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -107,8 +107,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -120,8 +120,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -133,8 +133,8 @@ export const DayIcon = ({
               <line
                 fill="none"
                 stroke="orange"
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
                 transform="translate(0,9)"
                 x1="0"
                 x2="0"
@@ -149,7 +149,7 @@ export const DayIcon = ({
             fill="orange"
             r={5}
             stroke="orange"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </g>
       </g>

@@ -11,7 +11,10 @@
   "dependencies": {
     "next": "13.5.4",
     "react": "^18",
+    "react-animated-counter": "^1.5.9",
+    "react-countup": "^6.4.2",
     "react-dom": "^18",
+    "react-spring": "^9.7.3",
     "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {

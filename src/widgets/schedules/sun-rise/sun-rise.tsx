@@ -1,4 +1,4 @@
-import { Tachometer } from '@weather/shared/components/tachometer-builder';
+import { Tachometer } from '@weather/shared/components/tachometer';
 import { FC } from 'react';
 
 export const SunRise: FC = () => {
@@ -7,10 +7,10 @@ export const SunRise: FC = () => {
       <span className="absolute left-6 top-6 ">Sun Rise</span>
       <span className="absolute right-6 top-6">Sun Set</span>
       <Tachometer
-        strokeDasharray="1 1"
         strokeWidth={1}
-        pointScale={null}
-        currentScore={5}
+        pointScale={13}
+        currentScore={}
+        borderStyle="dashed"
       >
         <div className="flex w-[60%] self-center justify-between">
           <span>06:00</span> <span>19:00</span>

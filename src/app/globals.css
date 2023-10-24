@@ -6,6 +6,23 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+.speedometer {
+  border-radius: 100px 100px 0 0;
+  border-bottom: none;
+}
+
+.speedometer::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 50px;
+  background: #999999;
+  border-radius: 100% 100% 5px 5px;
+  left: calc(50% - 3px);
+  bottom: 3px;
+  transform-origin: bottom;
+  transform: rotate(calc(var(--r) * 1.8deg - 90deg));
+}
 
 .animation-play {
   animation-play-state: running;
