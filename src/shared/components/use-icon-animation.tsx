@@ -1,8 +1,8 @@
 'use client';
-
-import { useState, useRef, useLayoutEffect, forwardRef, FC } from 'react';
-
-export const useIconAnimation = forwardRef<HTMLDivElement>(({}, ref) => {
+import { useState, useLayoutEffect, RefObject } from 'react';
+export const useIconAnimation = <T extends HTMLElement>(
+  ref: RefObject<T>
+): boolean => {
   const [isHovered, setHovered] = useState(false);
 
   useLayoutEffect(() => {
@@ -14,16 +14,18 @@ export const useIconAnimation = forwardRef<HTMLDivElement>(({}, ref) => {
       setHovered(false);
     };
 
-    if (ref) {
-      ref.addEventListener('mouseover', handleMouseOver);
-      ref.addEventListener('mouseout', handleMouseOut);
+    const element = ref.current;
+
+    if (element) {
+      element.addEventListener('mouseover', handleMouseOver);
+      element.addEventListener('mouseout', handleMouseOut);
 
       return () => {
-        ref.removeEventListener('mouseover', handleMouseOver);
-        ref.removeEventListener('mouseout', handleMouseOut);
+        element.removeEventListener('mouseover', handleMouseOver);
+        element.removeEventListener('mouseout', handleMouseOut);
       };
     }
   }, [ref]);
 
   return isHovered;
-});
+};

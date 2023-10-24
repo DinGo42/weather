@@ -1,14 +1,21 @@
 import { twJoin } from 'tailwind-merge';
 import { AnimationStates } from './constants';
 import './index.css';
+import { IconProps } from './types';
 
-export const Snowy1Icon = ({ isHovered = false }: { isHovered: boolean }) => {
+export const Snowy1Icon = ({
+  isHovered = false,
+  scale = 1,
+  className,
+}: IconProps) => {
   return (
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      width="64"
-      height="64"
+      width={64}
+      height={64}
+      style={{ scale: scale }}
+      className={twJoin('absolute', className)}
     >
       <defs>
         <filter id="blur" width="200%" height="200%">

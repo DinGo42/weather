@@ -1,14 +1,21 @@
 import { twJoin } from 'tailwind-merge';
 import { AnimationStates } from './constants';
 import './index.css';
+import { IconProps } from './types';
 
-export const DayIcon = ({ isHovered = false }: { isHovered: boolean }) => {
+export const DayIcon = ({
+  isHovered = false,
+  scale = 1,
+  className,
+}: IconProps) => {
   return (
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      width="64"
-      height="64"
+      width={64}
+      height={64}
+      style={{ scale: scale }}
+      className={twJoin('absolute', className)}
     >
       <defs>
         <filter id="blur" width="200%" height="200%">
@@ -18,13 +25,12 @@ export const DayIcon = ({ isHovered = false }: { isHovered: boolean }) => {
             <feFuncA type="linear" slope="0.05" />
           </feComponentTransfer>
           <feMerge>
-            <feMergeNode />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
       <g filter="url(#blur)">
-        <g transform="translate(32,32)">
+        <g transform={`translate(32,32)`}>
           <g
             id="dayIcon"
             className={twJoin(
@@ -133,7 +139,7 @@ export const DayIcon = ({ isHovered = false }: { isHovered: boolean }) => {
                 x1="0"
                 x2="0"
                 y1="0"
-                y2="3"
+                y2="2"
               />
             </g>
           </g>
@@ -141,7 +147,7 @@ export const DayIcon = ({ isHovered = false }: { isHovered: boolean }) => {
             cx="0"
             cy="0"
             fill="orange"
-            r="5"
+            r={5}
             stroke="orange"
             stroke-width="2"
           />

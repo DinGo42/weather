@@ -1,18 +1,21 @@
 import { twJoin } from 'tailwind-merge';
 import { AnimationStates } from './constants';
 import './index.css';
+import { IconProps } from './types';
 
 export const CloudyDay3Icon = ({
   isHovered = false,
-}: {
-  isHovered: boolean;
-}) => {
+  scale = 1,
+  className,
+}: IconProps) => {
   return (
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      width="64"
-      height="64"
+      width={64}
+      height={64}
+      style={{ scale: scale }}
+      className={twJoin('absolute', className)}
     >
       <defs>
         <filter id="blur" width="200%" height="200%">
@@ -28,7 +31,7 @@ export const CloudyDay3Icon = ({
         </filter>
       </defs>
       <g filter="url(#blur)" id="cloudy-day-3">
-        <g transform="translate(20,10)">
+        <g transform={`translate(32,32)`}>
           <g transform="translate(0,16)">
             <g
               className={twJoin(
