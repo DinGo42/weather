@@ -4,11 +4,10 @@
 
 * {
   box-sizing: border-box;
-  overflow: hidden;
 }
 .speedometer {
-  border-radius: 100px 100px 0 0;
-  border-bottom: none;
+  /* border-radius: 100px 100px 0 0; */
+  /* border-bottom: snone; */
 }
 
 .speedometer::before {

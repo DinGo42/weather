@@ -3,7 +3,7 @@ import { AnimationStates } from './constants';
 import './index.css';
 import { IconProps } from './types';
 
-export const Rainy2Icon = ({
+export const SunnyLightRainIcon = ({
   isHovered = false,
   scale = 1,
   className,
@@ -30,9 +30,9 @@ export const Rainy2Icon = ({
           </feMerge>
         </filter>
       </defs>
-      <g filter="url(#blur)" id="rainy-2">
+      <g filter="url(#blur)" id="rainy-1">
         <g transform="translate(20,10)">
-          <g transform="translate(0,16)">
+          <g transform="translate(0,16), scale(1.2)">
             <g
               className={twJoin(
                 'am-weather-sun',
@@ -159,12 +159,12 @@ export const Rainy2Icon = ({
               fill="#57A0EE"
               stroke="white"
               strokeLinejoin="round"
-              strokeWidth="1.2"
-              transform="translate(-20,-11)"
+              strokeWidth="1.5"
+              transform="translate(-15,-5), scale(0.85)"
             />
           </g>
         </g>
-        <g transform="translate(37,45), rotate(10)">
+        <g transform="translate(34,46), rotate(10)">
           <line
             className={twJoin(
               'am-weather-rain-1',
@@ -176,6 +176,22 @@ export const Rainy2Icon = ({
             strokeLinecap="round"
             strokeWidth="2"
             transform="translate(-6,1)"
+            x1="0"
+            x2="0"
+            y1="0"
+            y2="8"
+          />
+          <line
+            className={twJoin(
+              'am-weather-rain-2',
+              isHovered ? AnimationStates.START : AnimationStates.STOP
+            )}
+            fill="none"
+            stroke="#91C0F8"
+            strokeDasharray="4,7"
+            strokeLinecap="round"
+            strokeWidth="2"
+            transform="translate(0,-1)"
             x1="0"
             x2="0"
             y1="0"

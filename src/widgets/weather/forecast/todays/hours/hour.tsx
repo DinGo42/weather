@@ -8,11 +8,11 @@ export const HourForecast: FC = () => {
   const isHovered = useIconAnimation(iconRef);
   return (
     <div
-      className="h-full flex flex-col w-full bg-blue-500 pt-2 pb-2 rounded-3xl items-center relative justify-between"
+      className="flex flex-col w-full bg-blue-500 pt-2 pb-2 rounded-3xl items-center relative justify-between h-[120px]"
       ref={iconRef}
     >
       <span>09:00</span>
-      <Rainy1Icon isHovered={isHovered} className="top-10 right-0" />
+      <Rainy1Icon isHovered={isHovered} className="self-center justify-self-center top-7" />
       <span>26°</span>
     </div>
   );
