@@ -9,7 +9,7 @@ export const SunRise: FC = () => {
       {/* <Tachometer
         strokeWidth={1}
         pointScale={13}
-        currentScore={2}
+        currentScore={5}
         borderStyle="dashed"
       >
         <div className="flex w-[60%] self-center justify-between">

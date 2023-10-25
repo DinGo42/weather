@@ -3,7 +3,7 @@ import { AnimationStates } from './constants';
 import './index.css';
 import { IconProps } from './types';
 
-export const Snowy4Icon = ({
+export const HeavyRainIcon = ({
   isHovered = false,
   scale = 1,
   className,
@@ -30,7 +30,7 @@ export const Snowy4Icon = ({
           </feMerge>
         </filter>
       </defs>
-      <g filter="url(#blur)" id="snowy-4">
+      <g filter="url(#blur)" id="rainy-6">
         <g transform="translate(20,10)">
           <g>
             <path
@@ -42,59 +42,56 @@ export const Snowy4Icon = ({
               transform="translate(-20,-11)"
             />
           </g>
-          <g
+        </g>
+        <g transform="translate(31,46), rotate(10)">
+          <line
             className={twJoin(
-              'am-weather-snow-1',
+              'am-weather-rain-1',
               isHovered ? AnimationStates.START : AnimationStates.STOP
             )}
-          >
-            <g transform="translate(11,28)">
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1.2"
-                transform="translate(0,9), rotate(0)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1"
-                transform="translate(0,9), rotate(45)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1"
-                transform="translate(0,9), rotate(90)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1"
-                transform="translate(0,9), rotate(135)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-            </g>
-          </g>
+            fill="none"
+            stroke="#91C0F8"
+            strokeDasharray="4,4"
+            strokeLinecap="round"
+            strokeWidth="2"
+            transform="translate(-4,1)"
+            x1="0"
+            x2="0"
+            y1="0"
+            y2="8"
+          />
+          <line
+            className={twJoin(
+              'am-weather-rain-2',
+              isHovered ? AnimationStates.START : AnimationStates.STOP
+            )}
+            fill="none"
+            stroke="#91C0F8"
+            strokeDasharray="4,4"
+            strokeLinecap="round"
+            strokeWidth="2"
+            transform="translate(0,-1)"
+            x1="0"
+            x2="0"
+            y1="0"
+            y2="8"
+          />
+          <line
+            className={twJoin(
+              'am-weather-rain-1',
+              isHovered ? AnimationStates.START : AnimationStates.STOP
+            )}
+            fill="none"
+            stroke="#91C0F8"
+            strokeDasharray="4,4"
+            strokeLinecap="round"
+            strokeWidth="2"
+            transform="translate(4,0)"
+            x1="0"
+            x2="0"
+            y1="0"
+            y2="8"
+          />
         </g>
       </g>
     </svg>

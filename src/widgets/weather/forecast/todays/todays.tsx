@@ -1,8 +1,8 @@
 'use client';
 import { FC } from 'react';
 import { HourForecast } from './hours';
-import { CloudyIcon, Rainy1Icon } from '../../../../../public/icons';
 import CountUp from 'react-countup';
+import { GloomyLightSnowIcon } from '../../../../../public/icons';
 
 export const TadaysForecast: FC = () => {
   return (
@@ -13,7 +13,7 @@ export const TadaysForecast: FC = () => {
       </div>
       <div className="w-full h-fit flex items-center justify-between">
         <div className="flex flex-col text-xs w-[20%] items-center h-full relative justify-end pb-3 max-dectopS:hidden gap-3">
-          <Rainy1Icon isHovered={true} scale={2} />
+          <GloomyLightSnowIcon isHovered={true} scale={2} />
           <span>Cloudy 24 - 32°C</span>
         </div>
         <div className="flex h-fit w-full justify-around">

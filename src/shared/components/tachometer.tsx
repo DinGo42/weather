@@ -49,9 +49,8 @@ export const Tachometer: FC<TachometerProps> = ({
 
   return (
     <>
-      <div className="flex flex-col relative">
-        <div className="w-64 h-44 self-center border-b-2 border-blue-450 flex items-center justify-center relative">
-          {/* <svg width="360" viewBox="0 15 100 35">
+      <div className="w-64 h-44 bg-red-1000 self-center border-b-2 border-blue-450 flex items-center justify-center relative">
+        {/* <svg width="360" viewBox="0 15 100 35">
             <circle
               r="31.84713375796178"
               cx="50"
@@ -73,32 +72,31 @@ export const Tachometer: FC<TachometerProps> = ({
               ref={circleRef}
             />
           </svg> */}
-          <span
-            style={{
-              '--r': value ? value - 4 : 0,
-              borderColor: bgTachometerColor,
-              borderWidth: strokeWidth,
-              borderStyle: borderStyle,
-              borderBottom: 'none',
-            }}
-            className="speedometer border-solid inline-block scale-150 w-40 h-20"
-          />
-        </div>
-        {visibleScale &&
-          pointScale &&
-          points.map((point, index) => (
-            <span
-              key={index}
-              className={twJoin(
-                'absolute',
-                currentScore !== point.value && 'text--1000'
-              )}
-              style={{ left: point.x + 'px', bottom: -point.y + 'px' }}
-            >
-              {point.value}
-            </span>
-          ))}
+        <span
+          style={{
+            '--r': value ? value - 4 : 0,
+            borderColor: bgTachometerColor,
+            borderWidth: strokeWidth,
+            borderStyle: borderStyle,
+            borderBottom: 'none',
+          }}
+          className="speedometer border-solid inline-block scale-150 w-40 h-20 bottom-0 bg-blue-800 absolute"
+        />
       </div>
+      {visibleScale &&
+        pointScale &&
+        points.map((point, index) => (
+          <span
+            key={index}
+            className={twJoin(
+              'absolute',
+              currentScore !== point.value && 'text--1000'
+            )}
+            style={{ left: point.x + 'px', bottom: -point.y + 'px' }}
+          >
+            {point.value}
+          </span>
+        ))}
       {children}
     </>
   );

@@ -3,7 +3,7 @@ import { twJoin } from 'tailwind-merge';
 import './index.css';
 import { IconProps } from './types';
 
-export const Rainy5Icon = ({
+export const MediumRainIcon = ({
   isHovered = false,
   scale = 1,
   className,

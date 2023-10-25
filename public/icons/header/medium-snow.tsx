@@ -3,7 +3,7 @@ import { AnimationStates } from './constants';
 import './index.css';
 import { IconProps } from './types';
 
-export const Snowy6Icon = ({
+export const MediumSnowIcon = ({
   isHovered = false,
   scale = 1,
   className,
@@ -30,7 +30,7 @@ export const Snowy6Icon = ({
           </feMerge>
         </filter>
       </defs>
-      <g filter="url(#blur)" id="snowy-6">
+      <g filter="url(#blur)" id="snowy-5">
         <g transform="translate(20,10)">
           <g
             className={twJoin(
@@ -53,7 +53,7 @@ export const Snowy6Icon = ({
               isHovered ? AnimationStates.START : AnimationStates.STOP
             )}
           >
-            <g transform="translate(3,28)">
+            <g transform="translate(7,28)">
               <line
                 fill="none"
                 stroke="#57A0EE"
@@ -106,60 +106,7 @@ export const Snowy6Icon = ({
               isHovered ? AnimationStates.START : AnimationStates.STOP
             )}
           >
-            <g transform="translate(11,28)">
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1.2"
-                transform="translate(0,9), rotate(0)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1"
-                transform="translate(0,9), rotate(45)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1"
-                transform="translate(0,9), rotate(90)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-              <line
-                fill="none"
-                stroke="#57A0EE"
-                strokeLinecap="round"
-                strokeWidth="1"
-                transform="translate(0,9), rotate(135)"
-                x1="0"
-                x2="0"
-                y1="-2.5"
-                y2="2.5"
-              />
-            </g>
-          </g>
-          <g
-            className={twJoin(
-              'am-weather-snow-3',
-              isHovered ? AnimationStates.START : AnimationStates.STOP
-            )}
-          >
-            <g transform="translate(20,28)">
+            <g transform="translate(16,28)">
               <line
                 fill="none"
                 stroke="#57A0EE"

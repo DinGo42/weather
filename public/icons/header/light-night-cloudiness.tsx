@@ -3,7 +3,7 @@ import { AnimationStates } from './constants';
 import './index.css';
 import { IconProps } from './types';
 
-export const CloudyNight1Icon = ({
+export const LightNightCloudinessIcon = ({
   isHovered = false,
   scale = 1,
   className,
@@ -31,7 +31,7 @@ export const CloudyNight1Icon = ({
         </filter>
       </defs>
       <g filter="url(#blur)" id="cloudy-night-1">
-        <g transform={`translate(20,10)`}>
+        <g transform={`translate(15,10)`}>
           <g transform="translate(16,4), scale(0.8)">
             <g
               className={twJoin(
