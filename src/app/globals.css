@@ -4,7 +4,6 @@
 
 * {
   box-sizing: border-box;
-  overflow: hidden;
 }
 .speedometer {
   border-radius: 100px 100px 0 0;
@@ -68,10 +67,6 @@ p {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  overflow: hidden;
+  background: #070335;
 }

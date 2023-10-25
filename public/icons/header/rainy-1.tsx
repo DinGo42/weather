@@ -15,7 +15,7 @@ export const Rainy1Icon = ({
       width={64}
       height={64}
       style={{ scale: scale }}
-      className={twJoin('absolute', className)}
+      className={className}
     >
       <defs>
         <filter id="blur" width="200%" height="200%">

@@ -24,6 +24,7 @@ const config: Config = {
     },
     screens: {
       phoneS: '320px',
+      phoneSPlus: '375px',
       phoneM: '480px',
       tabletS: '768px',
       tabletM: '1024px',

@@ -16,7 +16,11 @@ export const DayForecast: FC = () => {
           <span>Sun</span>
           <span className="text-lg">03 Sep, 2023</span>
         </div>
-        <DayIcon isHovered={isHovered} scale={2.5} className="right-5 top-2" />
+        <DayIcon
+          isHovered={isHovered}
+          scale={2.5}
+          // className="max-tabletS:hidden"
+        />
       </div>
       <div className="flex flex-col items-center text-center text-3xl ">
         <span>38°C</span>

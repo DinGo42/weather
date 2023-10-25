@@ -1,6 +1,7 @@
 'use client';
 import { FC, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { NewsList } from './news-item';
+import { NewsItem } from './news-item/news-item';
 const maxListItems = 4;
 export const News: FC = () => {
   const [scrollLeft, setScrollLeftWidth] = useState(0);
@@ -32,7 +33,7 @@ export const News: FC = () => {
   }, [newsList, scrollLeft]);
 
   return (
-    <div className="w-full h-96 rounded-3xl border-2 border-blue-450 p-3 flex flex-col gap-3">
+    <div className="w-full h-96 rounded-3xl border-2 border-blue-450 p-3 flex flex-col gap-3 bg-white-1000">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">Weather News</h1>
         <div className="flex gap-5 absolute right-16">

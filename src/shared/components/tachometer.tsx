@@ -30,12 +30,12 @@ export const Tachometer: FC<TachometerProps> = ({
   const value = pointScale && (currentScore / pointScale) * 100;
 
   const points = [];
-  const midCircle = 255;
+  const midCircle = 120;
   if (pointScale) {
     for (let i = 0; i < pointScale; i++) {
       const angle = (i / (pointScale - 1)) * Math.PI;
       const x = midCircle + radius * Math.cos(angle);
-      const y = 230 - midCircle - radius * Math.sin(angle);
+      const y = 115 - midCircle - radius * Math.sin(angle);
       const value = pointScale - i;
       points.push({ x, y, value });
     }
@@ -49,7 +49,7 @@ export const Tachometer: FC<TachometerProps> = ({
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col relative">
         <div className="w-64 h-44 self-center border-b-2 border-blue-450 flex items-center justify-center relative">
           {/* <svg width="360" viewBox="0 15 100 35">
             <circle
