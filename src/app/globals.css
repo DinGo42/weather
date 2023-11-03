@@ -67,6 +67,105 @@ p {
 
 body {
   color: rgb(var(--foreground-rgb));
-  overflow: hidden;
+  overflow-x: hidden;
   background: #070335;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  background: radial-gradient(
+    ellipse farthest-corner at center top,
+    #012619,
+    #000
+  );
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-container .header-container {
+  font-family: "Comfortaa", cursive;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  padding-bottom: 1rem;
+}
+
+.app-container .chart-container {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  height: 50px;
+  width: 124px;
+  padding: 5px 10px;
+}
+
+.custom-tooltip .label {
+  padding: 4px 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.price-container {
+  display: flex;
+  font-size: 18px;
+  height: 18px !important;
+  line-height: 18px !important;
+  align-content: flex-start;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.price-container > p:first-of-type {
+  font-family: "Comfortaa", cursive;
+  margin: 0;
+  height: 18px;
+  line-height: 18px;
+  font-size: 18px;
+}
+
+.ticker-column-container {
+  font-family: "Comfortaa", cursive;
+  height: 18px !important;
+  line-height: 18px !important;
+  overflow: hidden;
+}
+
+.ticker-column {
+  height: 180px;
+}
+
+.ticker-column > .ticker-digit {
+  height: 18px !important;
+  line-height: 18px !important;
+}
+
+.ticker-column > .ticker-digit > span {
+  height: 18px !important;
+  line-height: 18px !important;
 }

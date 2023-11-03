@@ -23,14 +23,10 @@ export const Tachometer: FC<TachometerProps> = ({
   borderStyle = 'solid',
   radius = 95,
 }) => {
-  // const circleRef = useRef<SVGCircleElement | null>(null);
-  // const circle = circleRef.current;
-
-  // const startValue = 100;
   const value = pointScale && (currentScore / pointScale) * 100;
 
   const points = [];
-  const midCircle = 120;
+  const midCircle = 110;
   if (pointScale) {
     for (let i = 0; i < pointScale; i++) {
       const angle = (i / (pointScale - 1)) * Math.PI;
@@ -41,49 +37,22 @@ export const Tachometer: FC<TachometerProps> = ({
     }
   }
 
-  // useLayoutEffect(() => {
-  //   if (!circle) return;
-  //   // circle.style.strokeDasharray = (100 + 20).toString();
-  //   // circle.style.strokeDasharray = `${(value - 4.287).toString()} 9`;
-  // }, [circle, value]);
 
   return (
     <>
-      <div className="w-64 h-44 bg-red-1000 self-center border-b-2 border-blue-450 flex items-center justify-center relative">
-        {/* <svg width="360" viewBox="0 15 100 35">
-            <circle
-              r="31.84713375796178"
-              cx="50"
-              cy="50"
-              fill="none"
-              stroke={bgTachometerColor}
-              strokeWidth={strokeWidth}
-              strokeDasharray={strokeDasharray}
-            />
-
-            <circle
-              r="31.84713375796178"
-              cx="50"
-              cy="50"
-              fill="none"
-              stroke={tachometerLineColor}
-              strokeWidth={strokeWidth + 0.2}
-              strokeDasharray={strokeDasharray}
-              ref={circleRef}
-            />
-          </svg> */}
-        <span
+    <div className='w-fit h-full flex items-center justify-center flex-col'>
+    <div className='w-[240px] after:border-b-2 after:w-[280px] after:h-11 after:-bottom-2 after:absolute after:border-blue-400 mb-1 h-full flex relative justify-center'>
+    <span
           style={{
-            '--r': value ? value - 4 : 0,
+            '--r': value ? value - 5 : 0,
             borderColor: bgTachometerColor,
             borderWidth: strokeWidth,
             borderStyle: borderStyle,
             borderBottom: 'none',
           }}
-          className="speedometer border-solid inline-block scale-150 w-40 h-20 bottom-0 bg-blue-800 absolute"
+          className="speedometer border-solid inline-block scale-150 w-40 h-20 bottom-5 bg-blue-800 absolute"
         />
-      </div>
-      {visibleScale &&
+        {visibleScale &&
         pointScale &&
         points.map((point, index) => (
           <span
@@ -93,11 +62,13 @@ export const Tachometer: FC<TachometerProps> = ({
               currentScore !== point.value && 'text--1000'
             )}
             style={{ left: point.x + 'px', bottom: -point.y + 'px' }}
-          >
+            >
             {point.value}
           </span>
-        ))}
+        ))} 
+    </div>
       {children}
+      </div>
     </>
   );
 };

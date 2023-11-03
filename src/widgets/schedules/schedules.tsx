@@ -5,8 +5,8 @@ import { WindSpeed } from './wind-speed';
 
 export const Schedules: FC = () => {
   return (
-    <div className="w-full h-full flex flex-col gap-5">
-      <div className="w-full h-1/2 flex gap-7">
+    <div className="w-full h-[80%] flex flex-col gap-5">
+      <div className="w-full tabletS:h-1/2 h-full min-h-[190px] flex gap-7 max-tabletS:flex-col">
         <WindSpeed />
         <SunRise />
       </div>

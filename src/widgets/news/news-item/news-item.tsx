@@ -1,11 +1,12 @@
 import { FC } from 'react';
 type NewsItemProps = {
-  itemWidth?: number;
+  itemWidth: number;
+  id?:number
 };
-export const NewsItem: FC<NewsItemProps> = ({ itemWidth }) => {
+export const NewsItem: FC<NewsItemProps> = ({ itemWidth,id }) => {
   return (
-    <div className="min-w-[32%] max-w-[32%] h-full p-4 bg-blue-500 flex flex-col justify-between rounded-3xl">
-      <span className="text-xl">Heavy rain == {itemWidth}</span>
+    <div style={{minWidth:itemWidth + '%',maxWidth:itemWidth + '%'}} className="h-full p-4 bg-blue-500 flex flex-col justify-between rounded-3xl">
+    <span className="text-xl">Heavy rain == {id}</span>
       <div className="flex w-full flex-col gap-1 max-h-24 justify-between">
         <span className="text-md">New Your</span>
         <span className="text-sm">

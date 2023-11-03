@@ -19,7 +19,6 @@ export const DayForecast: FC = () => {
         <DayIcon
           isHovered={isHovered}
           scale={2.5}
-          // className="max-tabletS:hidden"
         />
       </div>
       <div className="flex flex-col items-center text-center text-3xl ">

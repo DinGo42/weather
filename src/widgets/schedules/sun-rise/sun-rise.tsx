@@ -3,19 +3,19 @@ import { FC } from 'react';
 
 export const SunRise: FC = () => {
   return (
-    <div className="w-full h-full rounded-3xl bg-blue-600 border-2 border-blue-450 flex flex-col relative pl-6 pr-6 pt-3 pb-2">
+    <div className="w-full h-full min-h-[180px] rounded-3xl bg-blue-600 border-2 border-blue-450 flex flex-col items-center relative pl-6 pr-6 pt-3 pb-2">
       <span className="absolute left-6 top-6 ">Sun Rise</span>
       <span className="absolute right-6 top-6">Sun Set</span>
-      {/* <Tachometer
+      <Tachometer
         strokeWidth={1}
         pointScale={13}
         currentScore={5}
         borderStyle="dashed"
       >
-        <div className="flex w-[60%] self-center justify-between">
+        <div className="flex w-[120%] self-center justify-between">
           <span>06:00</span> <span>19:00</span>
         </div>
-      </Tachometer> */}
+      </Tachometer>
     </div>
   );
 };
