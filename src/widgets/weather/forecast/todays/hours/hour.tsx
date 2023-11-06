@@ -6,10 +6,9 @@ import { useIconAnimation } from '@weather/shared';
 
 type HourForecastProps = {
   itemWidth:number
-  id?:number
 }
 
-export const HourForecast: FC<HourForecastProps> = ({itemWidth,id}) => {
+export const HourForecast: FC<HourForecastProps> = ({itemWidth}) => {
   const iconRef = useRef<HTMLDivElement | null>(null);
   const isHovered = useIconAnimation(iconRef);
   return (

@@ -29,7 +29,7 @@ export const TadaysForecast: FC = () => {
     wrapperRef: listRef.current,
   });
   return (
-    <div className="bg-blue-400 p-4 w-full h-full rounded-3xl border-2 border-blue-450 flex flex-col gap-4">
+    <div className="bg-blue-400 p-4 w-full h-fit rounded-3xl border-2 border-blue-450 flex flex-col gap-4">
       <div className="flex w-full justify-between">
         <span className="flex pb-3">02 Sep, 2023 09:45</span>
         <span

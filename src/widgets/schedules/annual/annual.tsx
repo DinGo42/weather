@@ -65,11 +65,11 @@ const CustomTooltip = ({
   label?: string;
   conditionalMark: string;
 }) => (
-  <div className="w-fit h-fit">
-    <p className="text-white-1000">{label}</p>
-    <p>
+  <div className="w-fit h-fit flex flex-col bg-black-200 p-2 rounded-xl">
+    <span className="text-white-1000">{label}</span>
+    <span>
       Temperature: {payload[0]?.value} {conditionalMark}
-    </p>
+    </span>
   </div>
 );
 enum annualTypes {
@@ -89,7 +89,7 @@ export const Annual: FC = () => {
   return (
     <div
       className={twJoin(
-        'relative max-tabletS:hidden min-h-[400px] w-full h-full bg-blue-600 rounded-3xl border-2 border-blue-450 pl-8 pr-8 pb-6 pt-6 flex flex-col overflow-hidden'
+        'relative max-tabletS:hidden min-h-[250px] w-full h-full bg-blue-600 rounded-3xl border-2 border-blue-450 pl-8 pr-8 pb-6 pt-6 flex flex-col overflow-hidden'
       )}
     >
       <div className="flex w-full h-fit justify-between">
