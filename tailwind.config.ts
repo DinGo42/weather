@@ -7,7 +7,9 @@ enum COLORS_ENUM {
   BLUE_500 = 'blue-500',
   BLUE_450 = 'blue-450',
   BLUE_400 = 'blue-400',
+  BLUE_350 = 'blue-350',
   RED_1000 = 'red-1000',
+  BLACK_200 = 'black-200',
 }
 
 const config: Config = {
@@ -19,8 +21,10 @@ const config: Config = {
       [COLORS_ENUM.BLUE_500]: '#17115F',
       [COLORS_ENUM.BLUE_450]: '#252159',
       [COLORS_ENUM.BLUE_400]: '#2E249F',
+      [COLORS_ENUM.BLUE_350]: '#3127A4',
       [COLORS_ENUM.WHITE_1000]: '#fff',
       [COLORS_ENUM.RED_1000]: '#FF0000',
+      [COLORS_ENUM.BLACK_200]: '#2D2955',
     },
     screens: {
       phoneS: '320px',
