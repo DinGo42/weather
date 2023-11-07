@@ -89,7 +89,7 @@ export const Annual: FC = () => {
   return (
     <div
       className={twJoin(
-        'relative max-tabletS:hidden min-h-[250px] w-full h-full bg-blue-600 rounded-3xl border-2 border-blue-450 pl-8 pr-8 pb-6 pt-6 flex flex-col overflow-hidden'
+        'relative max-tabletS:hidden h-[330px] w-full bg-blue-600 rounded-3xl border-2 border-blue-450 pl-8 pr-8 pb-6 pt-6 flex flex-col overflow-hidden'
       )}
     >
       <div className="flex w-full h-fit justify-between">
@@ -128,7 +128,7 @@ export const Annual: FC = () => {
         </div>
       </div>
       <ResponsiveContainer
-        height={250}
+        height={260}
         width="95%"
         className={'absolute top-16 left-0'}
       >
