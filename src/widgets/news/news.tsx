@@ -11,6 +11,7 @@ import {
 import { NewsItem } from './news-item/news-item';
 import { maxListItemsForScreen, newsListGap } from './constants';
 import { createItemsListProps } from '@weather/shared/hooks/use-carusel';
+import { listGap } from '../weather/forecast/todays/constants';
 
 const weacklyNews = [
   { id: 1 },
@@ -120,16 +121,14 @@ export const News: FC = () => {
       const scrollMaxWidth =
         listRef.current.scrollWidth - listRef.current.clientWidth;
       listRef.current.style.gap = newsListGap.toString();
-      const newScrollLeft = L
-        ? scrollLeft - listRef.current.clientWidth - newsListGap
-        : scrollLeft + listRef.current.clientWidth + newsListGap;
-      setScrollLeftWidth(() =>
-        newScrollLeft < 0
-          ? 0
-          : newScrollLeft > scrollMaxWidth
-          ? scrollMaxWidth
-          : newScrollLeft
-      );
+      const newScrollLeft = L?-(listRef.current.clientWidth+newsListGap):listRef.current.clientWidth+newsListGap
+      setScrollLeftWidth((prev) =>{
+        console.log(newScrollLeft)
+        const newValue = prev + newScrollLeft
+        if(newValue < 0) return 0;
+        if(newValue > scrollMaxWidth) return scrollMaxWidth;
+        return newValue
+      });
     },
     [listRef.current, scrollLeft]
   );

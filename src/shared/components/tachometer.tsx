@@ -13,6 +13,14 @@ type TachometerProps = {
   radius?: number;
 };
 
+const calculatePercentageInterval = (start:number,end:number,number:number) =>{
+  if(number<start|| number>end)return;
+  const gapLength = end - start;
+  const distanceToPoint = number - start;
+  return (distanceToPoint/gapLength) * 100 
+}
+
+
 export const Tachometer: FC<TachometerProps> = ({
   children,
   bgTachometerColor = '#fff',
@@ -23,7 +31,7 @@ export const Tachometer: FC<TachometerProps> = ({
   borderStyle = 'solid',
   radius = 95,
 }) => {
-  const value = pointScale && (currentScore / pointScale) * 100;
+  const value = calculatePercentageInterval(1,pointScale?pointScale:12,currentScore);
 
   const points = [];
   const midCircle = 110;
@@ -44,7 +52,7 @@ export const Tachometer: FC<TachometerProps> = ({
     <div className='w-[240px] after:border-b-2 after:w-[280px] after:h-11 after:-bottom-2 after:absolute after:border-blue-400 mb-1 h-full flex relative justify-center'>
     <span
           style={{
-            '--r': value ? value - 5 : 0,
+            '--r': value ? value : 0,
             borderColor: bgTachometerColor,
             borderWidth: strokeWidth,
             borderStyle: borderStyle,
@@ -52,7 +60,7 @@ export const Tachometer: FC<TachometerProps> = ({
           }}
           className="speedometer border-solid inline-block scale-150 w-40 h-20 bottom-5 bg-blue-800 absolute"
         />
-        {visibleScale &&
+        {visibleScale &&  
         pointScale &&
         points.map((point, index) => (
           <span

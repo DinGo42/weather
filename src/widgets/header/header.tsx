@@ -16,7 +16,7 @@ export const Header: FC = () => {
           styleType={InputStylesType.SEARCH}
           className="max-tabletS:hidden"
         />
-        <Button className="pr-7 pl-7 p-2 rounded-3xl bg-blue-450">s</Button>
+        <Button className="pr-7 pl-7 p-2 rounded-3xl bg-blue-450"></Button>
         {/* <Button
           className="rounded-3xl flex border-2 border-blue-350"
           // onClick={() =>
@@ -47,9 +47,11 @@ export const Header: FC = () => {
           </span>
         </Button> */}
 
+
+
         <label className="switch">
-          <input type="checkbox" checked />
-          <span className="slider round"></span>
+          <input type="checkbox" checked={true} />
+          <span className="slider round">sd</span>
         </label>
       </div>
     </header>
