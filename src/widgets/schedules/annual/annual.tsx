@@ -11,76 +11,107 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+enum Manths {
+  Jan = 'January',
+  Feb = 'February',
+  Mar = 'March',
+  Apr = 'April',
+  May = 'May',
+  Jun = 'June',
+  Jul = 'July',
+  Aug = 'August',
+  Sep = 'September',
+  Oct = 'October',
+  Nov = 'November',
+  Dec = 'December',
+}
+
+const Months2 = {};
+
 const HUMIDITY = [
-  { name: 'January', value: 65 },
-  { name: 'February', value: 62 },
-  { name: 'March', value: 58 },
-  { name: 'April', value: 56 },
-  { name: 'May', value: 63 },
-  { name: 'June', value: 70 },
-  { name: 'July', value: 75 },
-  { name: 'August', value: 78 },
-  { name: 'September', value: 72 },
-  { name: 'October', value: 68 },
-  { name: 'November', value: 64 },
-  { name: 'December', value: 66 },
+  { name: 'Jan', fullName: 'January', value: 65 },
+  { name: 'Feb', fullName: 'February', value: 62 },
+  { name: 'Mar', fullName: 'March', value: 58 },
+  { name: 'Apr', fullName: 'April', value: 56 },
+  { name: 'May', fullName: 'May', value: 63 },
+  { name: 'Jun', fullName: 'June', value: 70 },
+  { name: 'Jul', fullName: 'July', value: 75 },
+  { name: 'Aug', fullName: 'August', value: 78 },
+  { name: 'Sep', fullName: 'September', value: 72 },
+  { name: 'Oct', fullName: 'October', value: 68 },
+  { name: 'Nov', fullName: 'November', value: 64 },
+  { name: 'Dec', fullName: 'December', value: 66 },
 ];
 
 const RAINFALL = [
-  { name: 'January', value: 30 },
-  { name: 'February', value: 28 },
-  { name: 'March', value: 32 },
-  { name: 'April', value: 35 },
-  { name: 'May', value: 40 },
-  { name: 'June', value: 45 },
-  { name: 'July', value: 50 },
-  { name: 'August', value: 55 },
-  { name: 'September', value: 45 },
-  { name: 'October', value: 38 },
-  { name: 'November', value: 32 },
-  { name: 'December', value: 28 },
+  { name: 'Jan', fullName: 'January', value: 30 },
+  { name: 'Feb', fullName: 'February', value: 28 },
+  { name: 'Mar', fullName: 'March', value: 32 },
+  { name: 'Apr', fullName: 'April', value: 35 },
+  { name: 'May', fullName: 'May', value: 40 },
+  { name: 'Jun', fullName: 'June', value: 45 },
+  { name: 'Jul', fullName: 'July', value: 50 },
+  { name: 'Aug', fullName: 'August', value: 55 },
+  { name: 'Sep', fullName: 'September', value: 45 },
+  { name: 'Oct', fullName: 'October', value: 38 },
+  { name: 'Nov', fullName: 'November', value: 32 },
+  { name: 'Dec', fullName: 'December', value: 28 },
 ];
 
 const WINDSPEED = [
-  { name: 'January', value: 12 },
-  { name: 'February', value: 11 },
-  { name: 'March', value: 10 },
-  { name: 'April', value: 9 },
-  { name: 'May', value: 8 },
-  { name: 'June', value: 7 },
-  { name: 'July', value: 8 },
-  { name: 'August', value: 9 },
-  { name: 'September', value: 10 },
-  { name: 'October', value: 11 },
-  { name: 'November', value: 12 },
-  { name: 'December', value: 13 },
+  { name: 'Jan', fullName: 'January', value: 12 },
+  { name: 'Feb', fullName: 'February', value: 11 },
+  { name: 'Mar', fullName: 'March', value: 10 },
+  { name: 'Apr', fullName: 'April', value: 9 },
+  { name: 'May', fullName: 'May', value: 8 },
+  { name: 'Jun', fullName: 'June', value: 7 },
+  { name: 'Jul', fullName: 'July', value: 8 },
+  { name: 'Aug', fullName: 'August', value: 9 },
+  { name: 'Sep', fullName: 'September', value: 10 },
+  { name: 'Oct', fullName: 'October', value: 11 },
+  { name: 'Nov', fullName: 'November', value: 12 },
+  { name: 'Dec', fullName: 'December', value: 13 },
 ];
 
 const CustomTooltip = ({
   payload = [''],
-  label = '',
   conditionalMark,
+  conditionalType,
 }: {
   payload?: string[];
-  label?: string;
+  conditionalType: string;
   conditionalMark: string;
-}) => (
-  <div className="w-fit h-fit flex flex-col bg-black-200 p-2 rounded-xl">
-    <span className="text-white-1000">{label}</span>
-    <span>
-      Temperature: {payload[0]?.value} {conditionalMark}
-    </span>
-  </div>
-);
+}) => {
+  return (
+    <div className="w-fit h-fit flex flex-col bg-black-200 p-2 rounded-xl">
+      <span className="text-white-1000">{payload[0]?.payload.fullName}</span>
+      <span>
+        {conditionalType}: {payload[0]?.value} {conditionalMark}
+      </span>
+    </div>
+  );
+};
 enum annualTypes {
   HUMIDITY = 'humiduty',
   RAINFALL = 'rainfall',
   WINDSPEED = 'windspeed',
 }
 const data = {
-  humiduty: { conditionalMark: '%', data: HUMIDITY },
-  rainfall: { conditionalMark: 'mm/y', data: RAINFALL },
-  windspeed: { conditionalMark: 'km/h', data: WINDSPEED },
+  humiduty: {
+    conditionalMark: '%',
+    conditionalType: 'Humiduty',
+    data: HUMIDITY,
+  },
+  rainfall: {
+    conditionalMark: 'mm/y',
+    conditionalType: 'Amount of precipitation',
+    data: RAINFALL,
+  },
+  windspeed: {
+    conditionalMark: 'km/h',
+    conditionalType: 'Wind speed',
+    data: WINDSPEED,
+  },
 };
 export const Annual: FC = () => {
   const [annualType, setAnnualType] = useState(annualTypes.HUMIDITY);
@@ -140,6 +171,7 @@ export const Annual: FC = () => {
             wrapperStyle={{ height: '40px', border: 'none' }}
             content={
               <CustomTooltip
+                conditionalType={data[annualType].conditionalType}
                 conditionalMark={data[annualType].conditionalMark}
               />
             }
