@@ -58,6 +58,7 @@ export const TadaysForecast: FC = () => {
             max-phoneM:auto-cols-[calc((100%-12px*3)/4)]
             max-tabletS:auto-cols-[calc((100%-12px*5)/6)]
             max-dectopS:auto-cols-[calc((100%-12px*9)/10)]
+            dectopL:auto-cols-[calc((100%-12px*9)/10)]
             auto-cols-[calc((100%-12px*6)/7)]
             h-full gap-3"
         >

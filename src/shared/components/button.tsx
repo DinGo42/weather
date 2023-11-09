@@ -1,3 +1,4 @@
+'use client';
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
 
 export enum ButtonStylesTypes {

@@ -34,6 +34,7 @@ const config: Config = {
       tabletM: '1024px',
       dectopS: '1280px',
       dectopM: '1440px',
+      dectopL: '1920px',
     },
     extend: {
       backgroundImage: {
