@@ -8,6 +8,9 @@ dependencies:
   next:
     specifier: 13.5.4
     version: 13.5.4(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
+  openmeteo:
+    specifier: ^1.1.3
+    version: 1.1.3
   react:
     specifier: ^18
     version: 18.2.0
@@ -1732,6 +1735,13 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
     dev: true
+
+  /@openmeteo/sdk@1.5.0:
+    resolution: {integrity: sha512-UqSLsYqlNCotEZC4nirokxvDeQFnCs2iPLfrl0RfOzuhi5mtOBUlFl7PgUuooDdiY9wlewmYaw+3hEVXa8B6Rg==}
+    engines: {node: '>=12.0'}
+    dependencies:
+      flatbuffers: 23.5.26
+    dev: false
 
   /@react-native-community/cli-clean@11.3.7:
     resolution: {integrity: sha512-twtsv54ohcRyWVzPXL3F9VHGb4Qhn3slqqRs3wEuRzjR7cTmV2TIO2b1VhaqF4HlCgNd+cGuirvLtK2JJyaxMg==}
@@ -4138,6 +4148,10 @@ packages:
       rimraf: 3.0.2
     dev: true
 
+  /flatbuffers@23.5.26:
+    resolution: {integrity: sha512-vE+SI9vrJDwi1oETtTIFldC/o9GsVKRM+s6EL0nQgxXlYV1Vc4Tk30hj4xGICftInKQKj1F3up2n8UbIVobISQ==}
+    dev: false
+
   /flatted@3.2.9:
     resolution: {integrity: sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==}
     dev: true
@@ -5732,6 +5746,14 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-wsl: 1.1.0
+    dev: false
+
+  /openmeteo@1.1.3:
+    resolution: {integrity: sha512-f4ycmEA9rnhH4mPkDSLAuZ9dCu33nZ2bP7pLUJmZp2YYAuIDrGDIWU/VXQPmG48l5s+vw0VcnH9+CMqL57oADQ==}
+    engines: {node: '>=12.0'}
+    dependencies:
+      '@openmeteo/sdk': 1.5.0
+      flatbuffers: 23.5.26
     dev: false
 
   /optionator@0.9.3:

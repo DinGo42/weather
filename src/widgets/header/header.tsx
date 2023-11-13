@@ -1,18 +1,21 @@
+'use client';
 import {
   Button,
   Input,
   InputStylesType,
+  Translates,
   measureMeasurements,
+  useTranslate,
   useUnitMeasurement,
 } from '@weather/shared';
 import { FC, useState } from 'react';
 import { twJoin } from 'tailwind-merge';
 
 export const Header: FC = () => {
-  // const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   // const { changeToCelsius, changeToFahrenheit, measureMeasurement } =
   //   useUnitMeasurement();
-
+  const { setToEng, setToRu, setToUA, translate } = useTranslate();
   return (
     <header className="w-full h-12 flex items-center justify-between">
       <h2>Cherkassy, Ukraine</h2>
@@ -21,62 +24,71 @@ export const Header: FC = () => {
           styleType={InputStylesType.SEARCH}
           className="max-tabletS:hidden"
         />
-        {/* <div
+        <div
           className={twJoin(
-            'w-fit flex flex-col  transition-all duration-500 bg-blue-450 rounded-3xl',
-            isOpen ? 'h-28 rounded-xl bg-blue-350 w-32' : 'h-8 w-10'
+            'flex flex-col transition-all duration-500 bg-blue-450 rounded-3xl',
+            isOpen ? 'h-26 rounded-xl bg-blue-350 w-32' : 'h-6 w-20'
           )}
         >
           <button
-            className="pl-4 pr-4 h-8 w-full bg-blue-450 flex gap-2 items-center justify-center rounded-xl"
+            className="w-full bg-blue-450 flex gap-2 items-center justify-center rounded-xl"
             onClick={() => {
               setOpen((prev) => !prev);
             }}
           >
             <span className="text-center">{translate}</span>
-            <span className="text-xs">▼</span>
+            <span className="text-xs">{isOpen ? '▲' : '▼'}</span>
           </button>
-
-          <button
-            className={twJoin(
-              'w-full justify-center h-8 bg-blue-450 flex gap-2 items-center hover:border-b-2 hover:border-t-2 border-blue-600',
-              !isOpen && 'hidden',
-              translate === Translates.RU && 'hidden'
-            )}
-            onClick={() => {
-              setToRu();
-              setOpen(() => false);
-            }}
-          >
-            <span className="text-center">RU</span>
-          </button>
-          <button
-            className={twJoin(
-              'w-full justify-center h-8 bg-blue-450 flex gap-2 items-center hover:border-b-2 hover:border-t-2 border-blue-600',
-              !isOpen && 'hidden',
-              translate === Translates.ENG && 'hidden'
-            )}
-            onClick={() => {
-              setToEng();
-              setOpen(() => false);
-            }}
-          >
-            <span className="text-center">ENG</span>
-          </button>
-          <button
-            className={twJoin(
-              'w-full justify-center h-8 bg-blue-450 flex gap-2 items-center hover:border-b-2 hover:border-t-2 border-blue-600',
-              !isOpen && 'hidden',
-              translate === Translates.UA && 'hidden'
-            )}
-            onClick={() => {
-              setToUA();
-              setOpen(() => false);
-            }}
-          >
-            <span className="text-center">UA</span>
-          </button>
-        </div> */}
+          {isOpen && (
+            <>
+              <button
+                className={twJoin(
+                  'w-full justify-center h-8 transition-opacity flex gap-2 items-center',
+                  // isOpen
+                  //   ? 'opacity-100 delay-300 duration-500'
+                  //   : ' opacity-0 delay-0 duration-0',
+                  translate === Translates.RU && 'hidden'
+                )}
+                onClick={() => {
+                  setToRu();
+                  setOpen(() => false);
+                }}
+              >
+                <span className={'text-center'}>RU</span>
+              </button>
+              <button
+                className={twJoin(
+                  'w-full justify-center h-8 transition-opacity flex gap-2 items-center',
+                  // isOpen
+                  //   ? 'opacity-100 delay-300 duration-500'
+                  //   : 'opacity-0 delay-0 duration-0',
+                  translate === Translates.ENG && 'hidden'
+                )}
+                onClick={() => {
+                  setToEng();
+                  setOpen(() => false);
+                }}
+              >
+                <span className={'text-center'}>ENG</span>
+              </button>
+              <button
+                className={twJoin(
+                  'w-full justify-center h-8 transition-opacity flex gap-2 items-center rounded-b-xl',
+                  // isOpen
+                  //   ? 'opacity-100 delay-300 duration-500'
+                  //   : 'opacity-0 delay-0 duration-0',
+                  translate === Translates.UA && 'hidden'
+                )}
+                onClick={() => {
+                  setToUA();
+                  setOpen(() => false);
+                }}
+              >
+                <span className={'text-center'}>UA</span>
+              </button>
+            </>
+          )}
+        </div>
         <Button
           className="rounded-3xl flex border-2 border-blue-350"
           // onClick={() =>

@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { HourForecast } from './hours';
 import CountUp from 'react-countup';
 import { GloomyLightSnowIcon } from '../../../../../public/icons';
+import { getTadaysForecast } from './api';
 
 const hourlyWeatherData = [
   { id: 1 },
@@ -17,12 +18,12 @@ const hourlyWeatherData = [
   { id: 10 },
 ];
 
-export const TadaysForecast: FC = () => {
+export const TadaysForecast: FC = async () => {
   return (
     <div className="bg-blue-400 pl-4 pr-4 pt-4 pb-2 w-full h-fit rounded-3xl border-2 border-blue-450 flex flex-col gap-4">
       <div className="flex w-full justify-between">
         <span className="flex pb-3">02 Sep, 2023 09:45</span>
-        <span className={'max-dectopS:hidden'}>Cloudy 24 - 32°C</span>
+        <span className={'dectopS:hidden'}>Cloudy 24 - 32°C</span>
       </div>
       <div className="w-full h-fit flex items-center justify-between">
         <div
@@ -39,14 +40,17 @@ export const TadaysForecast: FC = () => {
               <CountUp duration={10} start={0} end={27} />
               °C
             </span>
-            <span className="text-sm">temoerature</span>
+            <span className="text-sm">temperature</span>
           </div>
           <div className="flex flex-col h-fit gap-3 justify-around text-center items-center  phoneM:text-5xl text-3xl">
             <span>{<CountUp duration={5} start={0} end={86} />}%</span>
             <span className="text-sm">Humidity</span>
           </div>
           <div className="flex flex-col h-fit gap-3 justify-around items-center text-center  phoneM:text-5xl text-3xl">
-            <span>{<CountUp duration={6} start={0} end={14} />}km/h</span>
+            <span>
+              {<CountUp duration={6} start={0} end={current.windSpeed10m} />}
+              km/h
+            </span>
             <span className="text-sm">Wind speed</span>
           </div>
         </div>

@@ -1,11 +1,15 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 type NewsItemProps = {
   itemWidth?: number;
   id?: number;
+  onClick: () => void;
 };
-export const NewsItem: FC<NewsItemProps> = ({ itemWidth, id }) => {
+export const NewsItem: FC<NewsItemProps> = ({ itemWidth, id, onClick }) => {
   return (
-    <div className="h-full w-full p-4 bg-blue-500 flex-col flex justify-between rounded-3xl">
+    <div
+      className="h-full w-full p-4 bg-blue-500 flex-col flex justify-between rounded-3xl"
+      onClick={onClick}
+    >
       <span className="text-xl">Heavy rain == {id}</span>
       <div className="flex w-full flex-col gap-1 max-h-24 justify-between">
         <span className="text-md">New Your</span>

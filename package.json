@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "13.5.4",
+    "openmeteo": "^1.1.3",
     "react": "^18",
     "react-animated-counter": "^1.5.9",
     "react-countup": "^6.4.2",
