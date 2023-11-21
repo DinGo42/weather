@@ -12,7 +12,6 @@ export const SunRise: FC = () => {
     queryFn: getCurrentWindData,
   });
   if (!data) return;
-  console.log(data);
   const time = getSplitArray({
     arr: data.time,
     splitForParts: 0,

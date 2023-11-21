@@ -48,12 +48,6 @@ export const TadaysForecast: FC = () => {
   const current = data.current;
   const hourly = data.hourly;
 
-  const weatherType = useWeatherType({
-    cloudCover: current.cloudCover,
-    rain: current.rain,
-    snowfall: current.snowfall,
-    temperature: current.temperature2m,
-  });
   const weatherIcon = useWeatherIcon({
     cloudCover: current.cloudCover,
     iconScale: 2,
@@ -61,42 +55,11 @@ export const TadaysForecast: FC = () => {
     isHovered: true,
     rain: current.rain,
     snowfall: current.snowfall,
-    weatherType,
+    weatherType: current.weatherType,
   });
 
-  const sortedTodayHourlyTemperatureForecast = hourly.temperature2m
-    .slice(0, 24)
-    .sort();
-
-  const hourlyWeatherData = hourly.time
-    .slice(new Date().getHours() - 2, new Date().getHours() + 23)
-    .map((time, index) => ({
-      time: time,
-      temperature: Number(
-        hourly.temperature2m
-          .slice(new Date().getHours() - 2, new Date().getHours() + 23)
-          [index].toFixed(0)
-      ),
-      cloudCover: hourly.cloudCover.slice(
-        new Date().getHours() - 2,
-        new Date().getHours() + 23
-      )[index],
-      isDay: hourly.isDay.slice(
-        new Date().getHours() - 2,
-        new Date().getHours() + 23
-      )[index],
-      rain: hourly.rain.slice(
-        new Date().getHours() - 2,
-        new Date().getHours() + 23
-      )[index],
-      snofall: hourly.snowfall.slice(
-        new Date().getHours() - 2,
-        new Date().getHours() + 23
-      )[index],
-    }));
-
-  const maxDayTemperature = sortedTodayHourlyTemperatureForecast[23].toFixed(0);
-  const minDayTemperature = sortedTodayHourlyTemperatureForecast[0].toFixed(0);
+  const maxDayTemperature = hourly.temperatureFluctuations[23].toFixed(0);
+  const minDayTemperature = hourly.temperatureFluctuations[0].toFixed(0);
 
   return isLoading ? (
     <TodaysSceleton />
@@ -107,7 +70,7 @@ export const TadaysForecast: FC = () => {
           {/* {day} {Months[month]}, {year} {time} */}
         </span>
         <span className={'dectopS:hidden'}>
-          {weatherType}{' '}
+          {current.weatherType}{' '}
           {maxDayTemperature === minDayTemperature
             ? maxDayTemperature
             : minDayTemperature + ' - ' + maxDayTemperature}{' '}
@@ -122,7 +85,7 @@ export const TadaysForecast: FC = () => {
         >
           {weatherIcon}
           <span>
-            {weatherType}{' '}
+            {current.weatherType}{' '}
             {maxDayTemperature === minDayTemperature
               ? maxDayTemperature
               : minDayTemperature + ' - ' + maxDayTemperature}
@@ -170,7 +133,7 @@ export const TadaysForecast: FC = () => {
             auto-cols-[calc((100%-12px*6)/7)]
             h-full gap-3"
         >
-          {hourlyWeatherData.map(
+          {hourly.weatherData.map(
             (
               { temperature, time, cloudCover, isDay, rain, snofall },
               index
