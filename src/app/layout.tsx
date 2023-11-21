@@ -2,6 +2,7 @@ import { AppWrapper } from '@weather/shared';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import Providers from './providers';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <AppWrapper>{children}</AppWrapper>
+        <Providers>
+          <AppWrapper>{children}</AppWrapper>
+        </Providers>
       </body>
     </html>
   );

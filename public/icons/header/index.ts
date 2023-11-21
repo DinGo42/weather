@@ -15,7 +15,7 @@ export { default as CloudyIcon } from './cloudy.svg';
 export { LightNightCloudinessIcon } from './light-night-cloudiness';
 export { MediumNightCloudinessIcon } from './medium-night-cloudiness';
 export { CloudyNightIcon } from './cloudy-night';
-export { default as NightIcon } from './night.svg';
+export { NightIcon } from './night';
 
 /// Day
 export { DayIcon } from './day';

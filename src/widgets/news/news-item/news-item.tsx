@@ -1,21 +1,27 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 type NewsItemProps = {
-  itemWidth?: number;
   id?: number;
-  onClick: () => void;
+  title?: string;
+  location?: string;
+  text?: string;
+  onClick?: () => void;
 };
-export const NewsItem: FC<NewsItemProps> = ({ itemWidth, id, onClick }) => {
+export const NewsItem: FC<NewsItemProps> = ({
+  id,
+  onClick,
+  location,
+  text,
+  title,
+}) => {
   return (
     <div
       className="h-full w-full p-4 bg-blue-500 flex-col flex justify-between rounded-3xl"
       onClick={onClick}
     >
-      <span className="text-xl">Heavy rain == {id}</span>
+      <span className="text-xl">{title}</span>
       <div className="flex w-full flex-col gap-1 max-h-24 justify-between">
-        <span className="text-md">New Your</span>
-        <span className="text-sm">
-          Heavy rain causes last night, President called off for two days.
-        </span>
+        <span className="text-md">{location}</span>
+        <span className="text-sm">{text}</span>
       </div>
     </div>
   );

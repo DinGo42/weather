@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Annual } from './annual';
+import { Annual } from './daily';
 import { SunRise } from './sun-rise';
 import { WindSpeed } from './wind-speed';
 

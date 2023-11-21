@@ -15,7 +15,7 @@ export const CloudyNightIcon = ({
       width={64}
       height={64}
       style={{ scale: scale }}
-      className={twJoin('absolute', className)}
+      className={twJoin('', className)}
     >
       <defs>
         <filter id="blur" width="200%" height="200%">
@@ -43,7 +43,7 @@ export const CloudyNightIcon = ({
                 fill="orange"
                 points="3.3,1.5 4,2.7 5.2,3.3 4,4 3.3,5.2 2.7,4 1.5,3.3 2.7,2.7"
                 stroke="none"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
             </g>
             <g
@@ -56,7 +56,7 @@ export const CloudyNightIcon = ({
                 fill="orange"
                 points="3.3,1.5 4,2.7 5.2,3.3 4,4 3.3,5.2 2.7,4 1.5,3.3 2.7,2.7"
                 stroke="none"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 transform="translate(20,10)"
               />
             </g>
