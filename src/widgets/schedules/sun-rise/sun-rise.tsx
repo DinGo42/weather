@@ -3,7 +3,6 @@ import { Tachometer } from '@weather/shared/components/tachometer';
 import { FC } from 'react';
 import { getCurrentWindData } from './api';
 import { useQuery } from '@tanstack/react-query';
-import { getSplitArray } from '@weather/widgets/weather/forecast/weekly/day-forecast';
 import { SchedulesSceleton } from '../schedules-sceleton';
 
 export const SunRise: FC = () => {
@@ -12,21 +11,7 @@ export const SunRise: FC = () => {
     queryFn: getCurrentWindData,
   });
   if (!data) return;
-  const time = getSplitArray({
-    arr: data.time,
-    splitForParts: 0,
-    subArrSize: 24,
-  })[0];
-  const isDay = getSplitArray({
-    arr: data.isDay,
-    splitForParts: 0,
-    subArrSize: 24,
-  })[0];
-  const sunSetIndex =
-    isDay.slice(isDay.indexOf(1)).indexOf(0) + isDay.indexOf(1);
-  const sunRise = time[isDay.indexOf(1)];
-  const sunSet = time[sunSetIndex];
-  const currentTime = new Date().getHours();
+  const { currentTime, sunRise, sunSet } = data;
   return isLoading ? (
     <SchedulesSceleton />
   ) : (

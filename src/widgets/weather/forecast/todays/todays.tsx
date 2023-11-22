@@ -5,7 +5,6 @@ import CountUp from 'react-countup';
 
 import { getCurrentForecast } from './api';
 import { useQuery } from '@tanstack/react-query';
-import { useWeatherIcon, useWeatherType } from '@weather/shared';
 import { TodaysSceleton } from './todays-sceleton';
 
 const getCurrentData = () => {
@@ -45,21 +44,9 @@ export const TadaysForecast: FC = () => {
     queryFn: getCurrentForecast,
   });
   if (!data) return;
-  const current = data.current;
-  const hourly = data.hourly;
 
-  const weatherIcon = useWeatherIcon({
-    cloudCover: current.cloudCover,
-    iconScale: 2,
-    isDay: !!current.isDay,
-    isHovered: true,
-    rain: current.rain,
-    snowfall: current.snowfall,
-    weatherType: current.weatherType,
-  });
-
-  const maxDayTemperature = hourly.temperatureFluctuations[23].toFixed(0);
-  const minDayTemperature = hourly.temperatureFluctuations[0].toFixed(0);
+  const { maxDayTemperature, minDayTemperature, weatherIcon, current } = data;
+  const { weatherData } = data.hourly;
 
   return isLoading ? (
     <TodaysSceleton />
@@ -133,7 +120,7 @@ export const TadaysForecast: FC = () => {
             auto-cols-[calc((100%-12px*6)/7)]
             h-full gap-3"
         >
-          {hourly.weatherData.map(
+          {weatherData.map(
             (
               { temperature, time, cloudCover, isDay, rain, snofall },
               index

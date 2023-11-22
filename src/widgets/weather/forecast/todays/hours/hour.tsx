@@ -41,6 +41,7 @@ export const HourForecast: FC<HourForecastProps> = ({
     snowfall,
     weatherType,
   });
+
   return (
     <div
       className="h-fit w-full flex flex-col bg-blue-500 pt-2 pb-2 rounded-3xl items-center relative justify-between select-none"

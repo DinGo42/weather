@@ -12,8 +12,8 @@ import {
 } from 'recharts';
 import { getCurrentHourlyForecast } from './api';
 import { useQuery } from '@tanstack/react-query';
-import { getSplitArray } from '@weather/widgets/weather/forecast/weekly/day-forecast';
 import { DailySceleton } from './daily-sceleton';
+import { dailyTypes } from './types';
 
 const CustomTooltip = ({
   payload = [''],
@@ -38,72 +38,15 @@ const CustomTooltip = ({
     </div>
   );
 };
-enum annualTypes {
-  HUMIDITY = 'humiduty',
-  RAINFALL = 'rainfall',
-  WINDSPEED = 'windspeed',
-}
 
 export const Annual: FC = () => {
-  const [annualType, setAnnualType] = useState(annualTypes.HUMIDITY);
+  const [annualType, setAnnualType] = useState(dailyTypes.HUMIDITY);
 
   const { data, isLoading } = useQuery({
     queryKey: ['currentHourlyForecast'],
     queryFn: getCurrentHourlyForecast,
   });
   if (!data) return;
-
-  const dayHumidity = getSplitArray({
-    arr: data.relativeHumidity2m,
-    splitForParts: 13,
-    subArrSize: 24,
-  })[0];
-  const dayRainFall = getSplitArray({
-    arr: data.rain,
-    splitForParts: 13,
-    subArrSize: 24,
-  })[0];
-  const dayWindSpeed = getSplitArray({
-    arr: data.windSpeed10m,
-    splitForParts: 13,
-    subArrSize: 24,
-  })[0];
-  const dayData = getSplitArray({
-    arr: data.time,
-    splitForParts: 13,
-    subArrSize: 24,
-  })[0];
-
-  const HUMIDITY = dayHumidity.map((humidity, index) => ({
-    time: dayData[index].getHours(),
-    value: humidity,
-  }));
-  const RAINFALL = dayRainFall.map((rainfall, index) => ({
-    time: dayData[index].getHours(),
-    value: rainfall,
-  }));
-  const WINDSPEED = dayWindSpeed.map((windspeed, index) => ({
-    time: dayData[index].getHours(),
-    value: windspeed,
-  }));
-
-  const dailyData = {
-    humiduty: {
-      conditionalMark: '%',
-      conditionalType: 'Humiduty',
-      data: HUMIDITY,
-    },
-    rainfall: {
-      conditionalMark: 'mm/d',
-      conditionalType: 'Amount of precipitation',
-      data: RAINFALL,
-    },
-    windspeed: {
-      conditionalMark: 'km/h',
-      conditionalType: 'Wind speed',
-      data: WINDSPEED,
-    },
-  };
 
   return isLoading ? (
     <DailySceleton />
@@ -117,30 +60,30 @@ export const Annual: FC = () => {
         <span className="text-3xl">Overview</span>
         <div className="w-fit flex h-full gap-5 text-lg rounded-full bg-black-200 text-white-1000">
           <button
-            onClick={() => setAnnualType(annualTypes.HUMIDITY)}
+            onClick={() => setAnnualType(dailyTypes.HUMIDITY)}
             className={twJoin(
               'rounded-full pl-3 pr-3 transition-colors duration-200',
-              annualType === annualTypes.HUMIDITY &&
+              annualType === dailyTypes.HUMIDITY &&
                 'bg-white-1000 text-blue-500'
             )}
           >
             Humidity
           </button>
           <button
-            onClick={() => setAnnualType(annualTypes.RAINFALL)}
+            onClick={() => setAnnualType(dailyTypes.RAINFALL)}
             className={twJoin(
               'rounded-full pl-3 pr-3 transition-colors duration-700',
-              annualType === annualTypes.RAINFALL &&
+              annualType === dailyTypes.RAINFALL &&
                 'bg-white-1000 text-blue-500'
             )}
           >
             Rainfall
           </button>
           <button
-            onClick={() => setAnnualType(annualTypes.WINDSPEED)}
+            onClick={() => setAnnualType(dailyTypes.WINDSPEED)}
             className={twJoin(
               'rounded-full pl-3 pr-3 transition-colors duration-700',
-              annualType === annualTypes.WINDSPEED &&
+              annualType === dailyTypes.WINDSPEED &&
                 'bg-white-1000 text-blue-500'
             )}
           >
@@ -153,7 +96,7 @@ export const Annual: FC = () => {
         width="95%"
         className={'absolute top-16 left-0'}
       >
-        <LineChart width={100} data={dailyData[annualType].data}>
+        <LineChart width={100} data={data[annualType].data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey={'time'} tick={{ fill: 'white' }} />
           <YAxis tick={{ fill: 'white' }} />
@@ -161,8 +104,8 @@ export const Annual: FC = () => {
             wrapperStyle={{ height: '40px', border: 'none' }}
             content={
               <CustomTooltip
-                conditionalType={dailyData[annualType].conditionalType}
-                conditionalMark={dailyData[annualType].conditionalMark}
+                conditionalType={data[annualType].conditionalType}
+                conditionalMark={data[annualType].conditionalMark}
               />
             }
           />

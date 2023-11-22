@@ -24,7 +24,7 @@ export const getSplitArray = <_, T>({
   return sliced_array;
 };
 
-const getAvgFromArray = (arr: number[]) =>
+export const getAvgFromArray = (arr: number[]) =>
   arr.reduce((first, second) => first + second, 0) / arr.length;
 
 export const DayForecastList = () => {
@@ -33,38 +33,10 @@ export const DayForecastList = () => {
     queryFn: getWeeklyForecast,
   });
   if (!data) return;
-
-  const weeklyTemperature = getSplitArray({
-    arr: data.temperature2m,
-    splitForParts: 7,
-  }).map((forecast) => getAvgFromArray(forecast));
-  const weeklyCloudCover = getSplitArray({
-    arr: data.cloudCover,
-    splitForParts: 7,
-  }).map((forecast) => getAvgFromArray(forecast));
-  const weeklyRain = getSplitArray({ arr: data.rain, splitForParts: 7 }).map(
-    (forecast) => getAvgFromArray(forecast)
-  );
-  const weeklySnowfall = getSplitArray({
-    arr: data.snowfall,
-    splitForParts: 7,
-  }).map((forecast) => getAvgFromArray(forecast));
-  const weeklyDate = getSplitArray({ arr: data.time, splitForParts: 7 });
-
-  const arr = weeklyDate
-    .map((date, index) => ({
-      date: date[13],
-      temperature: weeklyTemperature[index],
-      cloudCover: weeklyCloudCover[index],
-      rain: weeklyRain[index],
-      snowfall: weeklySnowfall[index],
-    }))
-    .splice(1);
-
   return isLoading ? (
     <DayForecastSceleton />
   ) : (
-    arr.map(({ date, temperature, cloudCover, rain, snowfall }, index) => (
+    data.map(({ date, temperature, cloudCover, rain, snowfall }, index) => (
       <DayForecast
         key={index}
         date={date}

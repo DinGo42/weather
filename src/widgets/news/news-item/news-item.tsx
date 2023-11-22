@@ -15,7 +15,7 @@ export const NewsItem: FC<NewsItemProps> = ({
 }) => {
   return (
     <div
-      className="h-full w-full p-4 bg-blue-500 flex-col flex justify-between rounded-3xl"
+      className="p-4 bg-blue-500 flex-col flex justify-between rounded-3xl"
       onClick={onClick}
     >
       <span className="text-xl">{title}</span>
