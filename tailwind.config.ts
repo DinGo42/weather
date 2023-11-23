@@ -42,6 +42,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        'slow-pulse': 'pulse 2s linear infinite',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

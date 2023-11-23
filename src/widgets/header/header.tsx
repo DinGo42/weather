@@ -1,4 +1,3 @@
-'use client';
 import {
   Button,
   Input,
@@ -12,10 +11,10 @@ import { FC, useState } from 'react';
 import { twJoin } from 'tailwind-merge';
 
 export const Header: FC = () => {
-  const [isOpen, setOpen] = useState(false);
+  // const [isOpen, setOpen] = useState(false);
   // const { changeToCelsius, changeToFahrenheit, measureMeasurement } =
   //   useUnitMeasurement();
-  const { setToEng, setToRu, setToUA, translate } = useTranslate();
+  // const { setToEng, setToRu, setToUA, translate } = useTranslate();
   return (
     <header className="w-full h-12 flex items-center justify-between">
       <h2>Cherkassy, Ukraine</h2>
@@ -26,20 +25,20 @@ export const Header: FC = () => {
         />
         <div
           className={twJoin(
-            'flex flex-col transition-all duration-500 bg-blue-450 rounded-3xl',
-            isOpen ? 'h-26 rounded-xl bg-blue-350 w-32' : 'h-6 w-20'
+            'flex flex-col transition-all duration-500 bg-blue-450 rounded-3xl'
+            // isOpen ? 'h-26 rounded-xl bg-blue-350 w-32' : 'h-6 w-20'
           )}
         >
           <button
             className="w-full bg-blue-450 flex gap-2 items-center justify-center rounded-xl"
-            onClick={() => {
-              setOpen((prev) => !prev);
-            }}
+            // onClick={() => {
+            // setOpen((prev) => !prev);
+            // }}
           >
-            <span className="text-center">{translate}</span>
-            <span className="text-xs">{isOpen ? '▲' : '▼'}</span>
+            {/* <span className="text-center">{translate}</span>
+            <span className="text-xs">{isOpen ? '▲' : '▼'}</span> */}
           </button>
-          {isOpen && (
+          {/* {isOpen && (
             <>
               <button
                 className={twJoin(
@@ -87,7 +86,7 @@ export const Header: FC = () => {
                 <span className={'text-center'}>UA</span>
               </button>
             </>
-          )}
+          )} */}
         </div>
         <Button
           className="rounded-3xl flex border-2 border-blue-350"

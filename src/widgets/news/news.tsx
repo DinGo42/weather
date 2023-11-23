@@ -107,7 +107,7 @@ export const News: FC = () => {
               <NewsItem
                 key={index}
                 id={item.id}
-                location="ad"
+                location="adasddddddasddddddddddddddddddddd"
                 text="asd"
                 title="asd"
                 onClick={() => setOpen(true)}

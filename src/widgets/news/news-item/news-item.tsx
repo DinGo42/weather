@@ -15,13 +15,19 @@ export const NewsItem: FC<NewsItemProps> = ({
 }) => {
   return (
     <div
-      className="p-4 bg-blue-500 flex-col flex justify-between rounded-3xl"
+      className="p-4 bg-blue-500 flex-col flex justify-between rounded-3xl overflow-hidden"
       onClick={onClick}
     >
-      <span className="text-xl">{title}</span>
-      <div className="flex w-full flex-col gap-1 max-h-24 justify-between">
-        <span className="text-md">{location}</span>
-        <span className="text-sm">{text}</span>
+      <span className="text-xl bg-red-1000 text-ellipsis whitespace-nowrap overflow-hidden">
+        {title}
+      </span>
+      <div className="flex w-full flex-col gap-1 h-fit justify-between bg-red-1000">
+        <span className="text-md text-ellipsis whitespace-nowrap overflow-hidden">
+          {location}
+        </span>
+        <span className="text-sm text-ellipsis whitespace-nowrap overflow-hidden">
+          {text}
+        </span>
       </div>
     </div>
   );

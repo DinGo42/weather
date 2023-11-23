@@ -1,7 +1,7 @@
 import { NewsItem } from './news-item/news-item';
 
 export const NewsSceleton = () => (
-  <div className="w-full h-full min-h-[290px] rounded-3xl border-2 border-blue-450 p-3 flex flex-col gap-3 justify-center">
+  <div className="animate-slow-pulse w-full h-full min-h-[290px] rounded-3xl border-2 border-blue-450 p-3 flex flex-col gap-3 justify-center">
     <div className="flex items-center justify-end">
       <div className="flex gap-5">
         <button className="bg-blue-500 rounded-full w-9 h-9 rotate-180 text-center"></button>

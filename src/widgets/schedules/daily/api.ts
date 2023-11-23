@@ -4,7 +4,7 @@ import { dailyTypes } from './types';
 import { ApiParamsTypes, getApiParams, url } from '@weather/shared';
 
 const { apiParams, apiParamsKeys } = getApiParams([
-  ApiParamsTypes.TEMPERATURE,
+  ApiParamsTypes.RELATIVE_HIMIDITY,
   ApiParamsTypes.RAIN,
   ApiParamsTypes.WIND_SPEED,
 ]);

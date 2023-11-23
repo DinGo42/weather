@@ -3,7 +3,7 @@ import { twJoin } from 'tailwind-merge';
 export const DailySceleton = () => (
   <div
     className={twJoin(
-      'relative max-tabletS:hidden min-h-[330px] w-full bg-blue-600 rounded-3xl border-2 border-blue-450 pl-8 pr-8 pb-6 pt-6 flex flex-col overflow-hidden'
+      'animate-slow-pulse relative max-tabletS:hidden min-h-[330px] w-full bg-blue-600 rounded-3xl border-2 border-blue-450 pl-8 pr-8 pb-6 pt-6 flex flex-col overflow-hidden'
     )}
   >
     <div className="flex w-full  justify-end h-10">
